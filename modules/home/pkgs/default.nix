@@ -2,6 +2,7 @@
   pkgs,
   bun2nix,
   glidePkg ? null,
+  nixSweepPkg,
 }:
 with pkgs;
 let
@@ -29,6 +30,7 @@ let
     llmAgents.ccusage
     llmAgents.ccusage-codex
     fastfetch
+    nixSweepPkg
     nixpkgs-fmt
     nodejs_22
     #ollama
