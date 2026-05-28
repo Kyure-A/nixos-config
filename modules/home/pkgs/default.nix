@@ -75,7 +75,6 @@ let
   ];
 
   darwin = [
-    karabiner-elements
     mas
     pinentry_mac
   ]

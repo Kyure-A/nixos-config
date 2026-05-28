@@ -33,7 +33,6 @@ This repository manages its configuration using Nix / Home Manager.
 │       ├── pkgs/default.nix
 │       └── programs/   # Program configs
 ├── overlays/
-│   ├── karabiner-elements.nix
 │   ├── lm-studio.nix
 │   ├── rekordbox.nix
 │   └── unity-hub.nix

@@ -7,7 +7,6 @@ let
   direnv = import ./direnv;
   emacs-twist = import ./emacs-twist;
   git = import ./git { inherit pkgs; };
-  karabiner = import ./karabiner;
   starship = import ./starship;
   tmux = import ./tmux { inherit pkgs; };
   zsh = import ./zsh { inherit pkgs; };
@@ -26,7 +25,6 @@ let
         alacritty
         glide
         ghostty
-        karabiner
       ]
     else
       [ ];
