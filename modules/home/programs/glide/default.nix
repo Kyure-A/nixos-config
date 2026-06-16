@@ -42,7 +42,7 @@
       visible_columns = 2
       center_focused_column = "on_overflow"
       column_width_presets = [0.5, 0.667, 1.0]
-      new_window_in_column = "new_column"
+      new_window_in_column = "same_column"
     '';
 
     onChange = ''

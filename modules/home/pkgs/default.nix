@@ -1,7 +1,6 @@
 {
   pkgs,
   bun2nix,
-  glidePkg ? null,
   nixSweepPkg,
 }:
 with pkgs;
@@ -19,6 +18,7 @@ let
     devenv
     docker-compose
     eza
+    ffmpeg
     fzf
     gcc
     gemini-cli
@@ -28,7 +28,6 @@ let
     gnupg
     keybase
     llmAgents.ccusage
-    llmAgents.ccusage-codex
     fastfetch
     nixSweepPkg
     nixpkgs-fmt
@@ -39,7 +38,7 @@ let
     openssl
     ripgrep
     rust-bin.stable.latest.default
-    satysfi
+    #satysfi
     tectonic
     tmux
     vscode
@@ -60,16 +59,12 @@ let
     antigravity
     codex-app
     pkgs."codex-switcher"
-    #    codexbar
-    crossover
+    #crossover
     firefox
     ghostty
-    lm-studio
     orbstack
-    postman
     raycast
-    reaper
-    rustdesk
+    #rustdesk
     spotify
     unity-hub
   ];
@@ -78,7 +73,6 @@ let
     mas
     pinentry_mac
   ]
-  ++ lib.optionals (glidePkg != null) [ glidePkg ]
   ++ homebrew;
 in
 common ++ lib.optionals (!stdenv.isDarwin) nonDarwin ++ lib.optionals stdenv.isDarwin darwin

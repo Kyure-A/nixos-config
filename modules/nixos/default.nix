@@ -16,6 +16,39 @@ in
         overlays = [
           inputs.bun2nix.overlays.default
           inputs.llm-agents.overlays.default
+          (final: prev: {
+            gnome2 = prev.gnome2.overrideScope (
+              _gnomeFinal: gnomePrev: {
+                gtksourceview = gnomePrev.gtksourceview.overrideAttrs (old: {
+                  nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ prev.gettext ];
+                });
+              }
+            );
+          })
+          (
+            final: prev:
+            prev.lib.optionalAttrs (prev ? emacs-git) {
+              emacs-git = prev.emacs-git.overrideAttrs (old: {
+                patches = final.lib.filter (
+                  patch:
+                  let
+                    patchName = builtins.baseNameOf (toString patch);
+                    stalePatches = [
+                      "fix-off-by-one-mistake-80851-CVE-2026-6861.patch"
+                      "01_all_treesit-0.26.patch"
+                      "02_all_ts-query-pred.patch"
+                    ];
+                  in
+                  !(final.lib.any (name: final.lib.hasInfix name patchName) stalePatches)
+                ) old.patches;
+              });
+            }
+          )
+          (final: _prev: {
+            nodePackages = {
+              inherit (final) typescript-language-server;
+            };
+          })
           inputs.rust-overlay.overlays.default
           inputs.fenix.overlays.default
           inputs.rustowl-flake.overlays.default
@@ -155,7 +188,6 @@ in
         };
       };
 
-      nixpkgs.config.allowUnfree = true;
       system.stateVersion = "25.05";
     }
     (lib.mkIf (!isWsl) {

@@ -33,8 +33,8 @@ This repository manages its configuration using Nix / Home Manager.
 │       ├── pkgs/default.nix
 │       └── programs/   # Program configs
 ├── overlays/
-│   ├── lm-studio.nix
-│   ├── rekordbox.nix
+│   ├── codex-switcher.nix
+│   ├── spotify.nix
 │   └── unity-hub.nix
 └── inputs/
     ├── bun2nix/        # Bun package generation inputs
@@ -45,7 +45,7 @@ This repository manages its configuration using Nix / Home Manager.
 ** Systems
 *** nix-darwin
 #+begin_src shell
-  sudo nix run nix-darwin --extra-experimental-features 'flakes nix-command' -- switch --flake .#darwin --show-trace
+  sudo nix run . -- --impure --show-trace
 #+end_src
 
 *** NixOS-WSL

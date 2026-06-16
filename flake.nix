@@ -23,17 +23,17 @@
       url = "github:nix-community/bun2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+    };
     emacs = {
-      url = "github:Kyure-A/.emacs.d/master";
+      url = "path:/Users/kyre/ghq/github.com/Kyure-A/.emacs.d";
       inputs.blueprint.follows = "blueprint";
+      inputs.emacs.follows = "emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fenix = {
       url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    glide = {
-      url = "github:Kyure-A/glide/pip";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -73,8 +73,38 @@
     inputs:
     let
       codexSwitcher = import ./overlays/codex-switcher.nix;
-      lm-studio = (import ./overlays/lm-studio.nix);
-      rekordbox = (import ./overlays/rekordbox.nix);
+      legacy-gtk = final: prev: {
+        gnome2 = prev.gnome2.overrideScope (
+          _gnomeFinal: gnomePrev: {
+            gtksourceview = gnomePrev.gtksourceview.overrideAttrs (old: {
+              nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ prev.gettext ];
+            });
+          }
+        );
+      };
+      emacs-git-patches =
+        final: prev:
+        prev.lib.optionalAttrs (prev ? emacs-git) {
+          emacs-git = prev.emacs-git.overrideAttrs (old: {
+            patches = final.lib.filter (
+              patch:
+              let
+                patchName = builtins.baseNameOf (toString patch);
+                stalePatches = [
+                  "fix-off-by-one-mistake-80851-CVE-2026-6861.patch"
+                  "01_all_treesit-0.26.patch"
+                  "02_all_ts-query-pred.patch"
+                ];
+              in
+              !(final.lib.any (name: final.lib.hasInfix name patchName) stalePatches)
+            ) old.patches;
+          });
+        };
+      node-packages = final: _prev: {
+        nodePackages = {
+          inherit (final) typescript-language-server;
+        };
+      };
       spotify = (import ./overlays/spotify.nix);
       unity-hub = (import ./overlays/unity-hub.nix);
 
@@ -83,8 +113,9 @@
         inputs.bun2nix.overlays.default
         inputs.llm-agents.overlays.default
         codexSwitcher
-        lm-studio
-        rekordbox
+        legacy-gtk
+        emacs-git-patches
+        node-packages
         spotify
         unity-hub
         inputs.rust-overlay.overlays.default
@@ -98,11 +129,34 @@
           "x86_64-linux"
           "aarch64-darwin"
         ];
+        nixpkgs.config.allowUnfree = true;
         nixpkgs.overlays = overlays;
       };
+
+      mkDarwinRebuildApp =
+        system:
+        let
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+          darwin-rebuild = pkgs.writeShellApplication {
+            name = "darwin-rebuild";
+            runtimeInputs = [ inputs.nix-darwin.packages.${system}.darwin-rebuild ];
+            text = ''
+              exec darwin-rebuild switch --flake .#darwin "$@"
+            '';
+          };
+        in
+        {
+          type = "app";
+          program = "${darwin-rebuild}/bin/darwin-rebuild";
+        };
     in
     flake
     // {
+      apps.aarch64-darwin = (flake.apps.aarch64-darwin or { }) // rec {
+        darwin-rebuild = mkDarwinRebuildApp "aarch64-darwin";
+        default = darwin-rebuild;
+      };
+
       formatter =
         let
           mkFormatter =

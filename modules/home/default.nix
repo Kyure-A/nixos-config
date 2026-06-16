@@ -1,11 +1,6 @@
 { pkgs, inputs, ... }:
 let
   bun2nix = pkgs.callPackage ../../inputs/bun2nix { inherit pkgs; };
-  glidePkg =
-    if pkgs.stdenv.isDarwin then
-      inputs.glide.packages.${pkgs.stdenv.hostPlatform.system}.default
-    else
-      null;
   nixSweepPkg = inputs.nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default;
   programs = import ./programs { inherit pkgs; };
 in
@@ -20,7 +15,6 @@ in
     inherit
       pkgs
       bun2nix
-      glidePkg
       nixSweepPkg
       ;
   };
