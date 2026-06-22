@@ -41,7 +41,6 @@ let
     #satysfi
     tectonic
     tmux
-    vscode
     web-ext # mozilla
     zoxide
     zsh-defer
