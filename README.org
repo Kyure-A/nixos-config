@@ -33,7 +33,6 @@ This repository manages its configuration using Nix / Home Manager.
 │       ├── pkgs/default.nix
 │       └── programs/   # Program configs
 ├── overlays/
-│   ├── codex-switcher.nix
 │   ├── spotify.nix
 │   └── unity-hub.nix
 └── inputs/
