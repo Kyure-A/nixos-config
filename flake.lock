@@ -118,11 +118,11 @@
     "brew-api": {
       "flake": false,
       "locked": {
-        "lastModified": 1781589011,
-        "narHash": "sha256-0JtL6cxuecgSfV8NhuFA5HdYSm+msZuwaQjLwvnpxT0=",
+        "lastModified": 1781603574,
+        "narHash": "sha256-bp7ZW0g4yCW0ZuMwcpZghZrgR+v3shMo2z9mdpc/YDE=",
         "owner": "BatteredBunny",
         "repo": "brew-api",
-        "rev": "f5595ea8c53cee65c233c05f1b3ae256f43458ed",
+        "rev": "e7069ab5790a5e2d9abe88c1b1604255c64e4837",
         "type": "github"
       },
       "original": {
@@ -283,7 +283,9 @@
           "blueprint"
         ],
         "elpa": "elpa",
-        "emacs": "emacs_2",
+        "emacs": [
+          "emacs-overlay"
+        ],
         "epkgs": "epkgs",
         "melpa": "melpa",
         "nixpkgs": [
@@ -294,8 +296,8 @@
         "twist": "twist"
       },
       "locked": {
-        "lastModified": 1781523703,
-        "narHash": "sha256-3yaBqglO86j6aGUrP1bCy84ZpOzmGNmBnroNTYarSqw=",
+        "lastModified": 1781771566,
+        "narHash": "sha256-Pz5hcUpp/BwP/JZt5qYl3537H1eH6moe6YgjnduUwuo=",
         "path": "/Users/kyre/ghq/github.com/Kyure-A/.emacs.d",
         "type": "path"
       },
@@ -304,17 +306,17 @@
         "type": "path"
       }
     },
-    "emacs_2": {
+    "emacs-overlay": {
       "inputs": {
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1771691422,
-        "narHash": "sha256-+ftf8BU7zDnv9M2hUNWfgThlwED5m3sgIX8lNK0Ddy0=",
+        "lastModified": 1781585278,
+        "narHash": "sha256-3MaIKZ5jOFX8esqRYeunHqH/dUkXetxJHSr2nVbelD4=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "d0c68cdea5a3cdca51dfb0430615b11239496ce2",
+        "rev": "28f979c6938fb6d35f3c87acae0a206fb321af35",
         "type": "github"
       },
       "original": {
@@ -757,27 +759,27 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1767313136,
-        "narHash": "sha256-16KkgfdYqjaeRGBaYsNrhPRRENs0qzkQVUooNHtoy2w=",
+        "lastModified": 1781216227,
+        "narHash": "sha256-9mUW6gNwoN2SWc/l0fW4svPNOulXLl8ijqKyeSOGgJE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ac62194c3917d5f474c1a844b6fd6da2db95077d",
+        "rev": "a0374025a863d007d98e3297f6aa46cc3141c2f0",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-25.05",
+        "ref": "nixos-26.05",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1771369470,
-        "narHash": "sha256-0NBlEBKkN3lufyvFegY4TYv5mCNHbi5OmBDrzihbBMQ=",
+        "lastModified": 1781074563,
+        "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0182a361324364ae3f436a63005877674cf45efb",
+        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
         "type": "github"
       },
       "original": {
@@ -789,11 +791,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1781602376,
-        "narHash": "sha256-icuzksp2w8HyfDN7F93HPxmFgMLAIsmkEjDfxiTWdaE=",
+        "lastModified": 1781604444,
+        "narHash": "sha256-8/EOUNG8QA1nPmfjIDaMGRqBKEN3HjiFrXyfpLEiMrs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8cd2f19f726a639ce4f86acf955928bd22ed2ef7",
+        "rev": "ac80908b4528982650dada009b4323d126390b93",
         "type": "github"
       },
       "original": {
@@ -850,6 +852,26 @@
         "type": "github"
       }
     },
+    "nur-packages": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782142632,
+        "narHash": "sha256-ihLvl37jtaHCtJkMkBE/qVjzK/mlA3wYRTrRMmlDUPc=",
+        "owner": "Kyure-A",
+        "repo": "nur-packages",
+        "rev": "e068a5fe93c82b69d3774160cec71b46c1717665",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kyure-A",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "org-babel": {
       "locked": {
         "lastModified": 1731256202,
@@ -873,6 +895,7 @@
         "brew-nix": "brew-nix",
         "bun2nix": "bun2nix",
         "emacs": "emacs",
+        "emacs-overlay": "emacs-overlay",
         "fenix": "fenix",
         "home-manager": "home-manager_2",
         "llm-agents": "llm-agents",
@@ -880,6 +903,7 @@
         "nix-sweep": "nix-sweep",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_3",
+        "nur-packages": "nur-packages",
         "rust-overlay": "rust-overlay",
         "rustowl-flake": "rustowl-flake",
         "sheldon": "sheldon",

@@ -16,6 +16,7 @@ in
         overlays = [
           inputs.bun2nix.overlays.default
           inputs.llm-agents.overlays.default
+          inputs.nur-packages.overlays.default
           (final: prev: {
             gnome2 = prev.gnome2.overrideScope (
               _gnomeFinal: gnomePrev: {

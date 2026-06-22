@@ -56,6 +56,10 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur-packages = {
+      url = "github:Kyure-A/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:nixos/nixpkgs";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
@@ -72,7 +76,6 @@
   outputs =
     inputs:
     let
-      codexSwitcher = import ./overlays/codex-switcher.nix;
       legacy-gtk = final: prev: {
         gnome2 = prev.gnome2.overrideScope (
           _gnomeFinal: gnomePrev: {
@@ -112,7 +115,7 @@
         inputs.brew-nix.overlays.default
         inputs.bun2nix.overlays.default
         inputs.llm-agents.overlays.default
-        codexSwitcher
+        inputs.nur-packages.overlays.default
         legacy-gtk
         emacs-git-patches
         node-packages
