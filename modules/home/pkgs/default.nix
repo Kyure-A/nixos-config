@@ -22,11 +22,13 @@ let
     fzf
     gcc
     gemini-cli
+    gh
     ghq
     glance
     gnumake
     gnupg
     keybase
+    kimi-code
     llmAgents.ccusage
     fastfetch
     nixSweepPkg
