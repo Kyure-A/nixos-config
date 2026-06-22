@@ -8,6 +8,7 @@ let
   git = import ./git { inherit pkgs; };
   starship = import ./starship;
   tmux = import ./tmux { inherit pkgs; };
+  zoxide = import ./zoxide;
   zsh = import ./zsh { inherit pkgs; };
   common = [
     copilot-language-server
@@ -16,6 +17,7 @@ let
     git
     starship
     tmux
+    zoxide
     zsh
   ];
   darwin =
