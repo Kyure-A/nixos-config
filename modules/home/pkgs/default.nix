@@ -13,6 +13,7 @@ let
     bun
     claude-code
     codex
+    cosense-cli
     delta
     deno
     devenv
@@ -30,6 +31,7 @@ let
     keybase
     kimi-code
     llmAgents.ccusage
+    manaba-cli
     fastfetch
     nixSweepPkg
     nixpkgs-fmt
