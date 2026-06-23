@@ -859,11 +859,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782142632,
-        "narHash": "sha256-ihLvl37jtaHCtJkMkBE/qVjzK/mlA3wYRTrRMmlDUPc=",
+        "lastModified": 1782175269,
+        "narHash": "sha256-MRt3/sjP5T+KkfE9e21OblEOw+Ec0iiLjzdIsZvDHqc=",
         "owner": "Kyure-A",
         "repo": "nur-packages",
-        "rev": "e068a5fe93c82b69d3774160cec71b46c1717665",
+        "rev": "1d2329097fd95f37d1ed2ff9e5504d6a277f3c6e",
         "type": "github"
       },
       "original": {
