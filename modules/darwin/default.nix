@@ -51,6 +51,7 @@
           inherit (final) typescript-language-server;
         };
       })
+      (import ../../overlays/alcove.nix)
       (import ../../overlays/unity-hub.nix)
       (import ../../overlays/spotify.nix)
       inputs.rust-overlay.overlays.default

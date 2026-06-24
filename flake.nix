@@ -108,6 +108,7 @@
           inherit (final) typescript-language-server;
         };
       };
+      alcove = (import ./overlays/alcove.nix);
       spotify = (import ./overlays/spotify.nix);
       unity-hub = (import ./overlays/unity-hub.nix);
 
@@ -119,6 +120,7 @@
         legacy-gtk
         emacs-git-patches
         node-packages
+        alcove
         spotify
         unity-hub
         inputs.rust-overlay.overlays.default
