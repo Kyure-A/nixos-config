@@ -27,7 +27,7 @@
       url = "github:nix-community/emacs-overlay";
     };
     emacs = {
-      url = "path:/Users/kyre/ghq/github.com/Kyure-A/.emacs.d";
+      url = "github:Kyure-A/.emacs.d";
       inputs.blueprint.follows = "blueprint";
       inputs.emacs.follows = "emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,6 +56,7 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pi-config.url = "github:Kyure-A/pi-config";
     nur-packages = {
       url = "github:Kyure-A/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";

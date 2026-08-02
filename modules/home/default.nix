@@ -8,6 +8,7 @@ in
   imports = programs ++ [
     inputs.emacs.homeModules.twist
     inputs.agent-skills.homeManagerModules.default
+    inputs.pi-config.homeManagerModules.default
     inputs.nix-sweep.homeModules.default
     inputs.sheldon.homeManagerModules.default
   ];

@@ -296,14 +296,17 @@
         "twist": "twist"
       },
       "locked": {
-        "lastModified": 1781771566,
-        "narHash": "sha256-Pz5hcUpp/BwP/JZt5qYl3537H1eH6moe6YgjnduUwuo=",
-        "path": "/Users/kyre/ghq/github.com/Kyure-A/.emacs.d",
-        "type": "path"
+        "lastModified": 1783042196,
+        "narHash": "sha256-s/dLcZ/bAUaVAtRzwK+c/8veKVwr/Re1w3Irmi3yibU=",
+        "owner": "Kyure-A",
+        "repo": ".emacs.d",
+        "rev": "00a2a25a52cbdc92ae7bb8277c3fcb26ae292496",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/kyre/ghq/github.com/Kyure-A/.emacs.d",
-        "type": "path"
+        "owner": "Kyure-A",
+        "repo": ".emacs.d",
+        "type": "github"
       }
     },
     "emacs-overlay": {
@@ -887,6 +890,21 @@
         "type": "github"
       }
     },
+    "pi-config": {
+      "locked": {
+        "lastModified": 1785663523,
+        "narHash": "sha256-F9svkX3FZa+ZvDUj+ajl1MtkUbgnxXDUeD2OoSMp9jM=",
+        "owner": "Kyure-A",
+        "repo": "pi-config",
+        "rev": "5519d729daef1fd9b61ff2522cf3b8de71a68367",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kyure-A",
+        "repo": "pi-config",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agent-skills": "agent-skills",
@@ -904,6 +922,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_3",
         "nur-packages": "nur-packages",
+        "pi-config": "pi-config",
         "rust-overlay": "rust-overlay",
         "rustowl-flake": "rustowl-flake",
         "sheldon": "sheldon",

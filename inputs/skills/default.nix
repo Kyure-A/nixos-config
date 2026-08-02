@@ -51,6 +51,10 @@
         dest = ".claude/skills";
         structure = "copy-tree";
       };
+      pi = {
+        dest = ".pi/agent/skills";
+        structure = "copy-tree";
+      };
     };
   };
 }
