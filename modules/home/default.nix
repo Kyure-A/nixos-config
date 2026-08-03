@@ -1,22 +1,33 @@
-{ pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   bun2nix = pkgs.callPackage ../../inputs/bun2nix { inherit pkgs; };
-  nixSweepPkg = inputs.nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  programs = import ./programs { inherit pkgs; };
+  llmAgents = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
+  programs = import ./programs { inherit pkgs llmAgents; };
+  nhCleanArgs = [
+    "--keep-since"
+    "30d"
+    "--keep"
+    "1"
+  ];
 in
 {
   imports = programs ++ [
     inputs.emacs.homeModules.twist
     inputs.agent-skills.homeManagerModules.default
     inputs.pi-config.homeManagerModules.default
-    inputs.nix-sweep.homeModules.default
     inputs.sheldon.homeManagerModules.default
   ];
   home.packages = import ./pkgs {
     inherit
       pkgs
       bun2nix
-      nixSweepPkg
+      llmAgents
       ;
   };
   home.file = {
@@ -25,12 +36,25 @@ in
     ".config/agents-md/template.md".source = ./AGENTS.md.template;
   };
 
-  services.nix-sweep = {
+  programs.nh = {
     enable = true;
-    package = nixSweepPkg;
-    interval = "weekly";
-    keepNewer = "7d";
-    removeOlder = "30d";
-    keepMin = 10;
+    clean = {
+      enable = true;
+      dates = "weekly";
+      extraArgs = lib.concatStringsSep " " nhCleanArgs;
+    };
   };
+
+  # Home Manager passes extraArgs to launchd as one argument, so keep the
+  # arguments separate on macOS.
+  launchd.agents.nh-clean.config.ProgramArguments = lib.mkIf pkgs.stdenv.isDarwin (
+    lib.mkForce (
+      [
+        (lib.getExe config.programs.nh.package)
+        "clean"
+        "user"
+      ]
+      ++ nhCleanArgs
+    )
+  );
 }

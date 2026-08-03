@@ -16,7 +16,6 @@
     overlays = [
       inputs.brew-nix.overlays.default
       inputs.bun2nix.overlays.default
-      inputs.llm-agents.overlays.default
       inputs.nur-packages.overlays.default
       (final: prev: {
         gnome2 = prev.gnome2.overrideScope (
@@ -73,9 +72,7 @@
     masApps = {
       Amphetamine = 937984704;
       DaisyDisk = 411643860;
-      GoodNotes = 1444383602;
       Klack = 6446206067;
-      Runcat = 1429033973;
     };
   };
 

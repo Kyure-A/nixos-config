@@ -1,7 +1,6 @@
-{ pkgs }:
+{ pkgs, llmAgents }:
 let
   lib = pkgs.lib;
-  llmAgents = pkgs."llm-agents";
   copilot = llmAgents."copilot-language-server";
 in
 {

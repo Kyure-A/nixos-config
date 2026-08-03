@@ -1,7 +1,7 @@
-{ pkgs }:
+{ pkgs, llmAgents }:
 let
   alacritty = import ./alacritty;
-  copilot-language-server = import ./copilot-language-server { inherit pkgs; };
+  copilot-language-server = import ./copilot-language-server { inherit pkgs llmAgents; };
   ghostty = import ./ghostty;
   direnv = import ./direnv;
   emacs-twist = import ./emacs-twist;

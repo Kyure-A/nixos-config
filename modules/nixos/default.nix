@@ -15,7 +15,6 @@ in
         hostPlatform = lib.mkDefault "x86_64-linux";
         overlays = [
           inputs.bun2nix.overlays.default
-          inputs.llm-agents.overlays.default
           inputs.nur-packages.overlays.default
           (final: prev: {
             gnome2 = prev.gnome2.overrideScope (

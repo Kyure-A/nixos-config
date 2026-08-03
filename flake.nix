@@ -1,6 +1,13 @@
 {
   description = "Kyure_A's NixOS Config";
 
+  nixConfig = {
+    extra-substituters = [ "https://cache.numtide.com" ];
+    extra-trusted-public-keys = [
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+    ];
+  };
+
   inputs = {
     agent-skills.url = "path:./inputs/skills";
     blueprint = {
@@ -40,16 +47,9 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    llm-agents = {
-      url = "github:numtide/llm-agents.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    llm-agents.url = "github:numtide/llm-agents.nix";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-sweep = {
-      url = "github:jzbor/nix-sweep";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl = {
@@ -116,7 +116,6 @@
       overlays = [
         inputs.brew-nix.overlays.default
         inputs.bun2nix.overlays.default
-        inputs.llm-agents.overlays.default
         inputs.nur-packages.overlays.default
         legacy-gtk
         emacs-git-patches

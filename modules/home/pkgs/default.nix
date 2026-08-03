@@ -1,18 +1,17 @@
 {
   pkgs,
   bun2nix,
-  nixSweepPkg,
+  llmAgents,
 }:
 with pkgs;
 let
   bun2nixPkgs = bun2nix;
-  llmAgents = pkgs."llm-agents";
   common = [
     #aider-chat
     bun2nixPkgs."atcoder-cli"
     bun
-    claude-code
-    codex
+    llmAgents.claude-code
+    llmAgents.codex
     cosense-cli
     delta
     deno
@@ -22,7 +21,7 @@ let
     ffmpeg
     fzf
     gcc
-    gemini-cli
+    llmAgents.gemini-cli
     gh
     ghq
     glance
@@ -33,13 +32,13 @@ let
     llmAgents.ccusage
     manaba-cli
     fastfetch
-    nixSweepPkg
     nixpkgs-fmt
     nodejs_22
     #ollama
     online-judge-tools
-    opencode
+    llmAgents.opencode
     openssl
+    llmAgents.qwen-code
     ripgrep
     rust-bin.stable.latest.default
     #satysfi
