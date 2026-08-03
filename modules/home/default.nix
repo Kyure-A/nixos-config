@@ -57,4 +57,17 @@ in
       ++ nhCleanArgs
     )
   );
+
+  launchd.agents.raycast = lib.mkIf pkgs.stdenv.isDarwin {
+    enable = true;
+    config = {
+      ProgramArguments = [
+        "/usr/bin/open"
+        "-g"
+        "${pkgs.brewCasks.raycast}/Applications/Raycast.app"
+      ];
+      ProcessType = "Interactive";
+      RunAtLoad = true;
+    };
+  };
 }
