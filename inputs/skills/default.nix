@@ -42,18 +42,22 @@
       "skill-creator"
     ];
     # skills.enableAll = [ "personal" ];
+    # "link" manages only the bundle's own entries via home.file, so skills
+    # installed into the same directories by other tools (e.g. the self
+    # repository's skills-install) are left untouched. copy-tree/symlink-tree
+    # would rsync --delete them on every switch.
     targets = {
       codex = {
         dest = ".codex/skills";
-        structure = "copy-tree";
+        structure = "link";
       };
       claude = {
         dest = ".claude/skills";
-        structure = "copy-tree";
+        structure = "link";
       };
       pi = {
         dest = ".pi/agent/skills";
-        structure = "copy-tree";
+        structure = "link";
       };
     };
   };
