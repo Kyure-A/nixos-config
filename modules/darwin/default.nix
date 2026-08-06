@@ -80,6 +80,8 @@
     nerd-fonts.fira-code
   ];
 
+  services.tailscale.enable = true;
+
   security.pam.services.sudo_local.touchIdAuth = true;
 
   nix = {
