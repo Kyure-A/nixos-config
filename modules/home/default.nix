@@ -70,4 +70,53 @@ in
       RunAtLoad = true;
     };
   };
+
+  launchd.agents.ollama = lib.mkIf pkgs.stdenv.isDarwin {
+    enable = true;
+    config = {
+      ProgramArguments = [
+        (lib.getExe pkgs.ollama)
+        "serve"
+      ];
+      EnvironmentVariables = {
+        OLLAMA_CONTEXT_LENGTH = "32768";
+        OLLAMA_FLASH_ATTENTION = "1";
+        OLLAMA_KEEP_ALIVE = "10m";
+        OLLAMA_KV_CACHE_TYPE = "q8_0";
+      };
+      KeepAlive = true;
+      ProcessType = "Background";
+      RunAtLoad = true;
+    };
+  };
+
+  programs.pi-coding-agent = {
+    settings = {
+      defaultProvider = "ollama";
+      defaultModel = "huihui_ai/qwen3.6-abliterated:35b";
+      defaultThinkingLevel = "medium";
+    };
+    models.providers.ollama = {
+      baseUrl = "http://localhost:11434/v1";
+      api = "openai-completions";
+      apiKey = "ollama";
+      compat = {
+        supportsDeveloperRole = false;
+        supportsReasoningEffort = false;
+      };
+      models = [
+        {
+          id = "huihui_ai/qwen3.6-abliterated:35b";
+          name = "Huihui Qwen3.6 35B A3B (Ollama)";
+          reasoning = true;
+          input = [
+            "text"
+            "image"
+          ];
+          contextWindow = 32768;
+          maxTokens = 8192;
+        }
+      ];
+    };
+  };
 }

@@ -34,7 +34,7 @@ let
     fastfetch
     nixpkgs-fmt
     nodejs_22
-    #ollama
+    ollama
     online-judge-tools
     llmAgents.opencode
     openssl
