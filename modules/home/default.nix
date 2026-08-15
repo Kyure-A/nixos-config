@@ -102,7 +102,7 @@ in
       apiKey = "ollama";
       compat = {
         supportsDeveloperRole = false;
-        supportsReasoningEffort = false;
+        supportsReasoningEffort = true;
       };
       models = [
         {
