@@ -93,7 +93,7 @@ in
   programs.pi-coding-agent = {
     settings = {
       defaultProvider = "ollama";
-      defaultModel = "huihui_ai/qwen3.6-abliterated:35b";
+      defaultModel = "hf.co/unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL";
       defaultThinkingLevel = "medium";
     };
     models.providers.ollama = {
@@ -106,8 +106,8 @@ in
       };
       models = [
         {
-          id = "huihui_ai/qwen3.6-abliterated:35b";
-          name = "Huihui Qwen3.6 35B A3B (Ollama)";
+          id = "hf.co/unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL";
+          name = "Qwen3.8 27B UD-Q4_K_XL (Ollama)";
           reasoning = true;
           input = [
             "text"
