@@ -15,6 +15,7 @@
     hostPlatform = lib.mkDefault "aarch64-darwin";
     overlays = [
       inputs.brew-nix.overlays.default
+      (import ../../overlays/pi-gui.nix { inherit (inputs) brew-nix; })
       inputs.bun2nix.overlays.default
       inputs.nur-packages.overlays.default
       (final: prev: {
