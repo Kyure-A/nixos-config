@@ -72,6 +72,22 @@
         "type": "github"
       }
     },
+    "natural-japanese": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784732195,
+        "narHash": "sha256-OR5pLtaGAYdGe4X/0l80OFeAvC4YKAJeFYsss57znVs=",
+        "owner": "coji",
+        "repo": "natural-japanese",
+        "rev": "b54954f8deb4f110f0959f4e4fac295708900120",
+        "type": "github"
+      },
+      "original": {
+        "owner": "coji",
+        "repo": "natural-japanese",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1770562336,
@@ -93,6 +109,7 @@
         "agent-skills": "agent-skills",
         "anthropic": "anthropic",
         "find-skills": "find-skills",
+        "natural-japanese": "natural-japanese",
         "ui-skills": "ui-skills",
         "vercel": "vercel"
       }

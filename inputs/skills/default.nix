@@ -5,6 +5,7 @@
   anthropic,
   vercel,
   find-skills,
+  natural-japanese,
   ...
 }:
 {
@@ -33,10 +34,15 @@
         path = find-skills;
         subdir = "skills";
       };
+      natural-japanese = {
+        path = natural-japanese;
+        subdir = "skills";
+      };
     };
     skills.enable = [
       "doc-coauthoring"
       "find-skills"
+      "natural-japanese"
       "pdf"
       "pptx"
       "skill-creator"

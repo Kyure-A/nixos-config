@@ -15,6 +15,10 @@
       url = "github:vercel-labs/skills";
       flake = false;
     };
+    natural-japanese = {
+      url = "github:coji/natural-japanese";
+      flake = false;
+    };
     ui-skills = {
       url = "github:ibelick/ui-skills";
       flake = false;
@@ -32,6 +36,7 @@
       anthropic,
       vercel,
       find-skills,
+      natural-japanese,
       ...
     }:
     {
@@ -44,6 +49,7 @@
               agent-skills
               anthropic
               find-skills
+              natural-japanese
               vercel
               ;
           }
