@@ -116,6 +116,17 @@ in
           contextWindow = 32768;
           maxTokens = 8192;
         }
+        {
+          id = "huihui_ai/qwen3.6-abliterated:27b";
+          name = "Huihui Qwen3.6 Abliterated 27B (Ollama)";
+          reasoning = true;
+          input = [
+            "text"
+            "image"
+          ];
+          contextWindow = 32768;
+          maxTokens = 8192;
+        }
       ];
     };
   };
