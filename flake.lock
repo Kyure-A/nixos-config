@@ -805,11 +805,11 @@
     },
     "pi-config": {
       "locked": {
-        "lastModified": 1786805686,
-        "narHash": "sha256-0Zivde5nUXcCb2yxUAEkM+dyoJPHfeOadY1AjUv8jNU=",
+        "lastModified": 1786810402,
+        "narHash": "sha256-fTFw6ZvgfNmwBImDgsSlnfpirmThRyGtROEcbUe/AEM=",
         "owner": "Kyure-A",
         "repo": "pi-config",
-        "rev": "f2a7cc7ab361f3eb0f8e543bcc4b69f0dd551726",
+        "rev": "ff75355ea0e69446ec3ff8bc792469b91bd17744",
         "type": "github"
       },
       "original": {

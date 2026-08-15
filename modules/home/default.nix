@@ -89,45 +89,4 @@ in
       RunAtLoad = true;
     };
   };
-
-  programs.pi-coding-agent = {
-    settings = {
-      defaultProvider = "ollama";
-      defaultModel = "hf.co/unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL";
-      defaultThinkingLevel = "medium";
-    };
-    models.providers.ollama = {
-      baseUrl = "http://localhost:11434/v1";
-      api = "openai-completions";
-      apiKey = "ollama";
-      compat = {
-        supportsDeveloperRole = false;
-        supportsReasoningEffort = true;
-      };
-      models = [
-        {
-          id = "hf.co/unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL";
-          name = "Qwen3.8 27B UD-Q4_K_XL (Ollama)";
-          reasoning = true;
-          input = [
-            "text"
-            "image"
-          ];
-          contextWindow = 32768;
-          maxTokens = 8192;
-        }
-        {
-          id = "huihui_ai/qwen3.6-abliterated:27b";
-          name = "Huihui Qwen3.6 Abliterated 27B (Ollama)";
-          reasoning = true;
-          input = [
-            "text"
-            "image"
-          ];
-          contextWindow = 32768;
-          maxTokens = 8192;
-        }
-      ];
-    };
-  };
 }
