@@ -822,11 +822,11 @@
     },
     "pi-config": {
       "locked": {
-        "lastModified": 1787316911,
-        "narHash": "sha256-Ml3v3LFl5CknRFNZem9No01SQAFn/lhGRb3JWBE+lWk=",
+        "lastModified": 1787329894,
+        "narHash": "sha256-Vf9ZVC6WFDQ3qYoYJBvpE0FTfSzCUD0g/QT0h8JIh3w=",
         "owner": "Kyure-A",
         "repo": "pi-config",
-        "rev": "15e99da5e285837b758f0aacaf93bb633b8ed25b",
+        "rev": "8c740c45ce6855637486344ceb4840a53aa1c206",
         "type": "github"
       },
       "original": {
