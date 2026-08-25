@@ -43,8 +43,16 @@ This repository manages its configuration using Nix / Home Manager.
 
 ** Systems
 *** nix-darwin
+The username is detected from the environment (=SUDO_USER= / =USER=) via impure evaluation, so the same =.#darwin= configuration works on any macOS machine regardless of the login user (pure evaluation falls back to =kyre=).
+
+First time on a new machine:
 #+begin_src shell
-  sudo nix run . -- --impure --show-trace
+  sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#darwin --impure
+#+end_src
+
+After that (the wrapper passes =--impure= automatically):
+#+begin_src shell
+  sudo nix run . -- --show-trace
 #+end_src
 
 *** NixOS-WSL

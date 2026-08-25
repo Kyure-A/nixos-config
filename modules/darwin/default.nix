@@ -1,6 +1,7 @@
 # https://nix-darwin.github.io/nix-darwin/manual/index.html
 
 {
+  config,
   lib,
   pkgs,
   inputs,
@@ -66,8 +67,6 @@
     extraSpecialArgs = { inherit inputs pkgs; };
   };
 
-  system.primaryUser = "kyre";
-
   homebrew = {
     enable = true;
     masApps = {
@@ -91,10 +90,7 @@
         "nix-command"
         "flakes"
       ];
-      trusted-users = [
-        "root"
-        "kyre"
-      ];
+      trusted-users = [ config.system.primaryUser ];
     };
     gc = {
       automatic = true;

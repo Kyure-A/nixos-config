@@ -148,7 +148,7 @@
             name = "darwin-rebuild";
             runtimeInputs = [ inputs.nix-darwin.packages.${system}.darwin-rebuild ];
             text = ''
-              exec darwin-rebuild switch --flake .#darwin "$@"
+              exec darwin-rebuild switch --flake .#darwin --impure "$@"
             '';
           };
         in
